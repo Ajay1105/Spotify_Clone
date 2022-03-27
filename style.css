@@ -5,6 +5,10 @@
 body{
     background-color: antiquewhite;
 }
+.navbar{
+    position: sticky;
+    top:0px;
+}
 nav ul{
     display: flex;
     align-items: center;
