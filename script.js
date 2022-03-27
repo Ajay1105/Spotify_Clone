@@ -26,3 +26,8 @@ audioElement.addEventListener("timeupdate", ()=>{
 progressBar.addEventListener("change",()=>{
     audioElement.currentTime = (progressBar.value * audioElement.duration) /100;
 })
+
+setInterval( () => {
+    const d = new Date();
+document.querySelector(".time").innerHTML=d;
+},1000);

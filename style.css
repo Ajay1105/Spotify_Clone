@@ -21,6 +21,10 @@ nav ul li{
     vertical-align: middle;
 }
 
+.time{
+   padding-left: 70%;
+}
+
 .container{  
     border-radius: 8px;
     min-height: 72vh;
