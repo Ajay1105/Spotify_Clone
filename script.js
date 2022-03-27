@@ -29,5 +29,5 @@ progressBar.addEventListener("change",()=>{
 
 setInterval( () => {
     const d = new Date();
-document.querySelector(".time").innerHTML=d;
+document.querySelector(".time").innerHTML=`Time ${d}`;
 },1000);
