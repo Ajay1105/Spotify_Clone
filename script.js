@@ -1,4 +1,3 @@
-console.log("welcome");
 document.querySelector("h1").innerHTML = "Welcome to cloned spotify";
 let audioElement = new Audio("songs/1.mp3");
 let masterClass = document.querySelector(".play");
