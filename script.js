@@ -4,6 +4,7 @@ let masterClass = document.querySelector(".play");
 let gif = document.querySelector("#gif");
 let progressBar = document.querySelector("#myProgressBar");
 let songItems = Array.from(document.querySelectorAll(".songItems"));
+let songNameDisplayed = document.querySelector(".songNameDisplayed");
 
 let songs = [
     { songName: "song1", filePath: "songs/1.mp3", coverPath: "covers/1.jpg" },
@@ -27,6 +28,7 @@ Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
             audioElement=(new Audio(`songs/${index+1}.mp3`));
             audioElement.play();
             gif.style.opacity = 1;
+            songNameDisplayed.innerHTML = `${songs[index].songName}`;
         }
         else{
             //console.log(e.currentTarget);
