@@ -18,7 +18,7 @@ let songs = [
 
 Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
     element.addEventListener("click",function (e) {
-            console.log(e.target);
+            console.log(e.currentTarget);
             index = parseInt(e.currentTarget.id);
            console.log(index);
             e.target.classList.remove("fa-play-circle");
@@ -26,8 +26,6 @@ Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
             (new Audio(`songs/${index+1}.mp3`)).play();
         })
 })
-
-
 
 songItems.forEach((element, i) => {
    // console.log(element, i);
