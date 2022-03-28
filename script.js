@@ -18,20 +18,21 @@ let songs = [
     { songName: "song8", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
 ]
 
-Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
-    element.addEventListener("click",function (e) {
-        if(audioElement.paused){
+Array.from(document.querySelectorAll(".songPlay")).forEach((element) => {
+    element.addEventListener("click", function (e) {
+        if (audioElement.paused) {
             //console.log(e.currentTarget);
             index = parseInt(e.currentTarget.id);
             //console.log(index);
             e.target.classList.remove("fa-play-circle");
             e.target.classList.add("fa-pause-circle");
-            audioElement=(new Audio(`songs/${index+1}.mp3`));
+            audioElement = (new Audio(`songs/${index + 1}.mp3`));
             audioElement.play();
             gif.style.opacity = 1;
             songNameDisplayed.innerHTML = `${songs[index].songName}`;
+            progressBar.value = 0;
         }
-        else{
+        else {
             //console.log(e.currentTarget);
             index = parseInt(e.currentTarget.id);
             //console.log(index);
@@ -40,15 +41,15 @@ Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
             audioElement.pause();
             gif.style.opacity = 0;
         }
-        })
+    })
 })
 
 songItems.forEach((element, i) => {
-   // console.log(element, i);
+    // console.log(element, i);
     element.querySelector("img").src = songs[i].coverPath;
     element.querySelector(".songName").innerHTML = songs[i].songName;
     s = (new Audio("songs/2.mp3"));
-    element.querySelector(".songDuration").innerHTML =`${s.duration}`;
+    element.querySelector(".songDuration").innerHTML = `${s.duration}`;
 })
 // for(var i =0;i<8;i++){
 //     document.getElementById(i).addEventListener('click',(event)=>{
