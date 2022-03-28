@@ -18,12 +18,25 @@ let songs = [
 
 Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
     element.addEventListener("click",function (e) {
-            console.log(e.currentTarget);
+        if(audioElement.paused){
+            //console.log(e.currentTarget);
             index = parseInt(e.currentTarget.id);
-           console.log(index);
+            //console.log(index);
             e.target.classList.remove("fa-play-circle");
             e.target.classList.add("fa-pause-circle");
-            (new Audio(`songs/${index+1}.mp3`)).play();
+            audioElement=(new Audio(`songs/${index+1}.mp3`));
+            audioElement.play();
+            gif.style.opacity = 1;
+        }
+        else{
+            //console.log(e.currentTarget);
+            index = parseInt(e.currentTarget.id);
+            //console.log(index);
+            e.target.classList.remove("fa-pause-circle");
+            e.target.classList.add("fa-play-circle");
+            audioElement.pause();
+            gif.style.opacity = 0;
+        }
         })
 })
 
