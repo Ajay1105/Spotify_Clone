@@ -19,11 +19,11 @@ let songs = [
 Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
     element.addEventListener("click",function (e) {
             console.log(e.target);
-            index = parseInt(e.target.id);
+            index = parseInt(e.currentTarget.id);
            console.log(index);
             e.target.classList.remove("fa-play-circle");
             e.target.classList.add("fa-pause-circle");
-          //  (new Audio(`songs/${index}.mp3`)).play();
+            (new Audio(`songs/${index+1}.mp3`)).play();
         })
 })
 
@@ -35,9 +35,10 @@ songItems.forEach((element, i) => {
     element.querySelector(".songName").innerHTML = songs[i].songName;
 })
 // for(var i =0;i<8;i++){
-//     document.getElementById(i).addEventListener('click',()=>{
-//         console.log(i);
-//         let song = new Audio(`songs/${i}.mp3`);
+//     document.getElementById(i).addEventListener('click',(event)=>{
+//         var a = event.currentTarget.id;
+//         console.log(a);
+//         let song = new Audio(`songs/${a+1}.mp3`);
 //         song.play();
 //     })
 // }
