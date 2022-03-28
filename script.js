@@ -16,11 +16,31 @@ let songs = [
     { songName: "song8", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
 ]
 
+Array.from(document.querySelectorAll(".songPlay")).forEach((element)=>{
+    element.addEventListener("click",function (e) {
+            console.log(e.target);
+            index = parseInt(e.target.id);
+           console.log(index);
+            e.target.classList.remove("fa-play-circle");
+            e.target.classList.add("fa-pause-circle");
+          //  (new Audio(`songs/${index}.mp3`)).play();
+        })
+})
+
+
+
 songItems.forEach((element, i) => {
-    console.log(element, i);
+   // console.log(element, i);
     element.querySelector("img").src = songs[i].coverPath;
     element.querySelector(".songName").innerHTML = songs[i].songName;
 })
+// for(var i =0;i<8;i++){
+//     document.getElementById(i).addEventListener('click',()=>{
+//         console.log(i);
+//         let song = new Audio(`songs/${i}.mp3`);
+//         song.play();
+//     })
+// }
 
 masterClass.addEventListener("click", () => {
     if (audioElement.paused || audioElement.currentTime == 0) {
