@@ -80,4 +80,5 @@ progressBar.addEventListener("change", () => {
 setInterval(() => {
     const d = new Date();
     document.querySelector(".time").innerHTML = `Time ${d}`;
+    //console.log(d);
 }, 1000);
