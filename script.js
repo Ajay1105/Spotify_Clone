@@ -5,6 +5,7 @@ let gif = document.querySelector("#gif");
 let progressBar = document.querySelector("#myProgressBar");
 let songItems = Array.from(document.querySelectorAll(".songItems"));
 let songNameDisplayed = document.querySelector(".songNameDisplayed");
+let s;
 
 let songs = [
     { songName: "song1", filePath: "songs/1.mp3", coverPath: "covers/1.jpg" },
@@ -46,6 +47,8 @@ songItems.forEach((element, i) => {
    // console.log(element, i);
     element.querySelector("img").src = songs[i].coverPath;
     element.querySelector(".songName").innerHTML = songs[i].songName;
+    s = (new Audio("songs/2.mp3"));
+    element.querySelector(".songDuration").innerHTML =`${s.duration}`;
 })
 // for(var i =0;i<8;i++){
 //     document.getElementById(i).addEventListener('click',(event)=>{
