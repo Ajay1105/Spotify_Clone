@@ -6,7 +6,7 @@ let progressBar = document.querySelector("#myProgressBar");
 let songItems = Array.from(document.querySelectorAll(".songItems"));
 let songNameDisplayed = document.querySelector(".songNameDisplayed");
 let s;
-let index;
+let index = 0;
 
 let songs = [
     { songName: "song1", filePath: "songs/1.mp3", coverPath: "covers/1.jpg" },
@@ -67,6 +67,7 @@ masterClass.addEventListener("click", () => {
         masterClass.classList.remove("fa-play-circle");
         masterClass.classList.add("fa-pause-circle");
         gif.style.opacity = 1;
+        songNameDisplayed.innerHTML = songs[0].songName;
     }
     else {
         audioElement.pause();
@@ -79,17 +80,21 @@ masterClass.addEventListener("click", () => {
 document.querySelector(".back").addEventListener('click',()=>{
     //console.log('clicked');
     audioElement.pause();
+    progressBar.value=0;
     index = index-1;
     audioElement = (new Audio(`songs/${index+1}.mp3`));
     audioElement.play();
-})
+    songNameDisplayed.innerHTML = songs[index].songName;
+    })
 
 document.querySelector(".next").addEventListener('click', function(){
     audioElement.pause();
+    progressBar.value=0;
     index= index + 1;
     audioElement = new Audio(`songs/${index+1}.mp3`);
     audioElement.play();
-})
+    songNameDisplayed.innerHTML = songs[index].songName;
+    })
 
 audioElement.addEventListener("timeupdate", () => {
     progress = parseInt(audioElement.currentTime / audioElement.duration * 100);
