@@ -6,6 +6,7 @@ let progressBar = document.querySelector("#myProgressBar");
 let songItems = Array.from(document.querySelectorAll(".songItems"));
 let songNameDisplayed = document.querySelector(".songNameDisplayed");
 let s;
+let index;
 
 let songs = [
     { songName: "song1", filePath: "songs/1.mp3", coverPath: "covers/1.jpg" },
@@ -74,6 +75,16 @@ masterClass.addEventListener("click", () => {
         gif.style.opacity = 0;
     }
 })
+
+document.querySelector(".back").addEventListener('click',()=>{
+    console.log('clicked');
+    audioElement.pause();
+    index = index-1;
+    audioElement = (new Audio(`songs/${index+1}.mp3`));
+    audioElement.play();
+})
+
+
 
 audioElement.addEventListener("timeupdate", () => {
     progress = parseInt(audioElement.currentTime / audioElement.duration * 100);
