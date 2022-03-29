@@ -77,14 +77,19 @@ masterClass.addEventListener("click", () => {
 })
 
 document.querySelector(".back").addEventListener('click',()=>{
-    console.log('clicked');
+    //console.log('clicked');
     audioElement.pause();
     index = index-1;
     audioElement = (new Audio(`songs/${index+1}.mp3`));
     audioElement.play();
 })
 
-
+document.querySelector(".next").addEventListener('click', function(){
+    audioElement.pause();
+    index= index + 1;
+    audioElement = new Audio(`songs/${index+1}.mp3`);
+    audioElement.play();
+})
 
 audioElement.addEventListener("timeupdate", () => {
     progress = parseInt(audioElement.currentTime / audioElement.duration * 100);
